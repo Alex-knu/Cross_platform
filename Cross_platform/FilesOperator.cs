@@ -6,7 +6,7 @@
         {
             try
             {
-                string[] lines = System.IO.File.ReadAllLines(path);
+                string[] lines = File.ReadAllLines(path);
                 return Int32.Parse(lines[0]);
             }
             catch (FileNotFoundException ex)

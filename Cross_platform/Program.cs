@@ -1,16 +1,15 @@
-﻿namespace Cross_platform
+﻿using Cross_platform.Labs;
+
+namespace Cross_platform
 {
 
     class Program
     {
-        static int Algoritm(int items)
-        {
-            return (int)(items * (items + 2) * (2 * items + 1) / 8);
-        }
-
         static void Main(string[] args)
         {
-            int? data = null;
+            Console.WriteLine(Lab_2.Algoritm(32));
+            /*
+            int? data;
             Console.WriteLine("Input path for input data file");
             string? inputPath = Console.ReadLine();
             Console.WriteLine("Input path for output data file");
@@ -35,7 +34,8 @@
                 return;
             }
 
-            FilesOperator.WriteData(outputPath, (Algoritm(data.Value)).ToString());
+            FilesOperator.WriteData(outputPath, (Lab_1.Algoritm(data.Value)).ToString());
+            */
         }
     }
 }
