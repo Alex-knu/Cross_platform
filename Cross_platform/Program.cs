@@ -7,8 +7,6 @@ namespace Cross_platform
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Lab_2.Algoritm(32));
-            /*
             int? data;
             Console.WriteLine("Input path for input data file");
             string? inputPath = Console.ReadLine();
@@ -35,7 +33,6 @@ namespace Cross_platform
             }
 
             FilesOperator.WriteData(outputPath, (Lab_1.Algoritm(data.Value)).ToString());
-            */
         }
     }
 }
