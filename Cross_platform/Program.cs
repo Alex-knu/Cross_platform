@@ -1,8 +1,8 @@
 ﻿using Cross_platform.Labs;
+using ORozdobudko;
 
 namespace Cross_platform
 {
-
     class Program
     {
         static void Main(string[] args)
@@ -32,7 +32,7 @@ namespace Cross_platform
                 return;
             }
 
-            FilesOperator.WriteData(outputPath, (Lab_1.Algoritm(data.Value)).ToString());
+            FilesOperator.WriteData(outputPath, ORozdobudko.Lab_1.Algoritm(data.Value).ToString());
         }
     }
 }
