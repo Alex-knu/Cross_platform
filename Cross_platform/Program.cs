@@ -37,7 +37,8 @@ namespace Cross_platform
             FilesOperator.WriteData(outputPath, ORozdobudko.Lab_1.Algoritm(data.Value).ToString());
             */
             
-            int[,] data = new int[4, 2]{{1, 3}, {1, 4}, {4, 3}, {5, 2}};
+            //int[,] data = new int[4, 2]{{1, 3}, {1, 4}, {4, 3}, {5, 2}};
+            int[,]? data = FilesOperator.ReadMatrixData("/home/alex/data.txt");
             int[] color = new int[5];
             List<int>[] graph = new List<int>[5];
             

@@ -20,7 +20,46 @@
 
             return null;
         }
+        
+        public static int[,]?  ReadMatrixData(string path)
+        {
+            try
+            {
+                int i = 0;
+                string[] lines = File.ReadAllLines(path);
 
+                if (lines.Length == 0 || lines.Length == 1)
+                {
+                    return null;
+                }
+
+                int[,] result = new int[lines.Length, 2];
+                
+                foreach (var row in lines)
+                {
+                    int j = 0;
+                    foreach (var col in row.Trim().Split(' '))
+                    {
+                        result[i, j] = int.Parse(col.Trim());
+                        j++;
+                    }
+                    i++;
+                }
+                
+                return result;
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Exception: incorrect data in file");
+            }
+
+            return null;
+        }
+        
         public static void WriteData(string path, string data)
         {
             try
