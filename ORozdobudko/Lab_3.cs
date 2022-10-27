@@ -4,7 +4,6 @@ namespace ORozdobudko
 {
     public class Lab_3
     {
-        public static bool Result { get; set; }
         public int Cycle { get; set; }
 
         bool CheckCyslic(int number, int cycle, List<int>[] graph, int []color)
