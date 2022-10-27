@@ -21,7 +21,7 @@ namespace Cross_platform
             
             if (inputPath == null || outputPath == null || inputPath == String.Empty || outputPath == String.Empty)
             {
-                Console.WriteLine("Exception: emty path to input/output file");
+                Console.WriteLine("Exception: empty path to input/output file");
                 return;
             }
 
