@@ -73,7 +73,7 @@ namespace Cross_platform
             
                     lab.Algoritm(nodes, graph, color);
                     
-                    FilesOperator.WriteData(outputPath, lab.Cycle != 0 ? "YES" : "NO");
+                    FilesOperator.WriteData(outputPath, lab.Cycle == 0 ? "YES" : "NO");
                 }
                 else
                 {
