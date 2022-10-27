@@ -13,17 +13,17 @@ namespace ORozdobudko
             
             for (int i = 0; i < graph[number].Count; ++i)
             {
-                int to = graph[number][i];
-                if (color[to] == 0)
+                int element = graph[number][i];
+                if (color[element] == 0)
                 {
-                    if (CheckCyslic(to, cycle, graph, color))
+                    if (CheckCyslic(element, cycle, graph, color))
                     {
                         return true;
                     }
                 }
-                else if (color[to] == 1)
+                else if (color[element] == 1)
                 {
-                    Cycle = to;
+                    Cycle = element;
                     return true;
                 }
             }
