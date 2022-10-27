@@ -13,7 +13,7 @@
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 Console.WriteLine("Exception: incorrect data in file");
             }
@@ -52,7 +52,7 @@
             {
                 Console.WriteLine("Exception: " + ex.Message);
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 Console.WriteLine("Exception: incorrect data in file");
             }

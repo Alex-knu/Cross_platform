@@ -8,55 +8,82 @@ namespace Cross_platform
     {
         static void Main(string[] args)
         {
-            /*
+            int i;
             int? data;
+            int[,]? dataMatrix;
+            
             Console.WriteLine("Input path for input data file");
             string? inputPath = Console.ReadLine();
             Console.WriteLine("Input path for output data file");
             string? outputPath = Console.ReadLine();
-
-            if (inputPath == null || outputPath == null)
+            Console.WriteLine("Input task number");
+            string? task = Console.ReadLine();
+            
+            if (inputPath == null || outputPath == null || inputPath == String.Empty || outputPath == String.Empty)
             {
                 Console.WriteLine("Exception: emty path to input/output file");
                 return;
             }
 
-            data = FilesOperator.ReadData(inputPath);
-
-            if (!data.HasValue)
+            if (Int32.TryParse(task, out int result))
             {
-                return;
-            }
+                if (result == 1 || result == 2)
+                {
+                    data = FilesOperator.ReadData(inputPath);
 
-            if (data <= 0)
-            {
-                Console.WriteLine("Number must be more than zero");
-                return;
-            }
+                    if (!data.HasValue)
+                    {
+                        return;
+                    }
 
-            FilesOperator.WriteData(outputPath, ORozdobudko.Lab_1.Algoritm(data.Value).ToString());
-            */
-            
-            //int[,] data = new int[4, 2]{{1, 3}, {1, 4}, {4, 3}, {5, 2}};
-            int[,]? data = FilesOperator.ReadMatrixData("/home/alex/data.txt");
-            int[] color = new int[5];
-            List<int>[] graph = new List<int>[5];
-            
-            for (int i = 0; i < 5; i++)
-            {
-                graph[i] = new List<int>();
-            }
-            
-            for (int i = 0; i < 4; i++)
-            {
-                graph[data[i, 0] - 1].Add(data[i, 1] - 1);
-            }
+                    if (data <= 0)
+                    {
+                        Console.WriteLine("Number must be more than zero");
+                        return;
+                    }
 
-            Lab_3 task = new Lab_3();
+                    if (result == 1)
+                    {
+                        FilesOperator.WriteData(outputPath, ORozdobudko.Lab_1.Algoritm(data.Value).ToString());
+                    }
+                    else
+                    {
+                        FilesOperator.WriteData(outputPath, ORozdobudko.Lab_2.Algoritm(data.Value).ToString());
+                    }
+                }
+                else if (result == 3)
+                {
+                    dataMatrix = FilesOperator.ReadMatrixData(inputPath);
+                    int nodes = dataMatrix[0, 0];
+                    int pairs = dataMatrix[0, 1];
+                    int[] color = new int[nodes];
+                    List<int>[] graph = new List<int>[nodes];
             
-            task.Algoritm(5, graph, color);
+                    for (i = 0; i < nodes; i++)
+                    {
+                        graph[i] = new List<int>();
+                    }
             
-            Console.WriteLine(task.Cycle);
+                    for (i = 1; i <= pairs; i++)
+                    {
+                        graph[dataMatrix[i, 0] - 1].Add(dataMatrix[i, 1] - 1);
+                    }
+
+                    ORozdobudko.Lab_3 lab = new ORozdobudko.Lab_3();
+            
+                    lab.Algoritm(nodes, graph, color);
+                    
+                    FilesOperator.WriteData(outputPath, lab.Cycle != 0 ? "YES" : "NO");
+                }
+                else
+                {
+                    Console.WriteLine("Exception: wrong task number");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Exception: wrong task number");
+            }
         }
     }
 }
