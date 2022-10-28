@@ -60,7 +60,7 @@
             return null;
         }
         
-        public static void WriteData(string path, string data)
+        public static void WriteData(string? path, string data)
         {
             try
             {
