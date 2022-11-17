@@ -1,4 +1,8 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "Microsoft/EdgeOnWindows10"
-  config.vm.box_version = "1.0"
+  config.vm.box = "gusztavvargadr/windows-10"
+  config.vm.provision "shell", inline: "choco install dotnet-6.0-sdk -y"
+
+  config.vm.provision "shell", inline: "dotnet nuget add source --name mynuget http://192.168.56.1:5000/v3/index.json" # 192.168.31.189
+  config.vm.provision "shell", inline: "dotnet add package ORozdobudko --version 1.0.0"
+
 end
