@@ -1,8 +1,19 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "gusztavvargadr/windows-10"
   config.vm.provision "shell", inline: "choco install dotnet-6.0-sdk -y"
+  config.vm.provision "shell", inline: "choco install curl -y"
 
   config.vm.provision "shell", inline: "dotnet nuget add source --name mynuget http://192.168.56.1:5000/v3/index.json" # 192.168.31.189
   config.vm.provision "shell", inline: "dotnet add package ORozdobudko --version 1.0.0"
 
+  config.vm.provision "shell", inline: "curl -o C:/tmp/cross_app.zip https://github.com/Alex-knu/Cross_platform/archive/refs/heads/master.zip"
+    
+  config.vm.provision "shell", inline: "mkdir C:/Cross_app"
+  config.vm.provision "shell", inline: "rmdir C:/Cross_app/src"
+  config.vm.provision "shell", inline: "mkdir C:/Cross_app/src"
+  config.vm.provision "shell", inline: "Expand-Archive -LiteralPath C:/tmp/cross_app.zip -DestinationPath  C:/Cross_app/src"
+    
+  config.vm.provision "shell", inline: "rmdir C:/Cross_app/app"
+  config.vm.provision "shell", inline: "dotnet build C:/Cross_app/src/Cross_platform-master -c Release -o C:/Cross_app/app"
+  config.vm.provision "shell", inline: "dotnet publish C:/Cross_app/src/Cross_platform-master -c Release -o C:/Cross_app/app"
 end
