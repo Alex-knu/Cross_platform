@@ -6,6 +6,7 @@ namespace Cross_platform
         {
             inputPath = PathCombiner(inputPath, @"input.txt");
 
+
             int? data = FilesOperator.ReadData(inputPath);
 
             if (!data.HasValue)

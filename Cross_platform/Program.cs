@@ -1,4 +1,5 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+using McMaster.Extensions.CommandLineUtils;
+
 
 namespace Cross_platform
 {
@@ -137,6 +138,7 @@ namespace Cross_platform
             });
 
             return app.Execute(args);
+
         }
     }
 }
