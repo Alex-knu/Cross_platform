@@ -2,14 +2,10 @@ namespace Cross_platform
 {
     public static class Helper
     {
-        public static int? ReadSimpleIntData(string? inputPath, string? outputPath)
+        public static int? ReadSimpleIntData(string? inputPath)
         {
-            if (inputPath == null || outputPath == null || inputPath == String.Empty || outputPath == String.Empty)
-            {
-                Console.WriteLine("Exception: empty path to input/output file");
-                return null;
-            }
-            
+            inputPath = PathCombiner(inputPath, @"input.txt");
+
             int? data = FilesOperator.ReadData(inputPath);
 
             if (!data.HasValue)
@@ -24,6 +20,22 @@ namespace Cross_platform
             }
 
             return data;
+        }
+
+        public static string PathCombiner(string? path, string fileName)
+        {
+            if (path == null || path == String.Empty)
+            {
+                return Path.GetFullPath(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), fileName));
+            }
+            else if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("LAB_PATH")))
+            {
+                return Path.Combine(Environment.GetEnvironmentVariable("LAB_PATH"), fileName);
+            }
+            else
+            {
+                return Path.GetFullPath(Path.Combine(path, fileName));
+            }
         }
     }
 }
