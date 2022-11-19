@@ -5,6 +5,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PackAsTool>True</PackAsTool>
+	<ToolCommandName>arozdobudko</ToolCommandName>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageId>arozdobudko</PackageId>
+	<Title>arozdobudko</Title>
+	<Authors>Alex Rozdobudko</Authors>
+	<Version>1.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.1" />

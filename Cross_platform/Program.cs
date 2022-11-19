@@ -1,6 +1,5 @@
 using McMaster.Extensions.CommandLineUtils;
 
-
 namespace Cross_platform
 {
     class Program
