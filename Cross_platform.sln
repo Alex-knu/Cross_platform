@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cross_platform", "Cross_platform\Cross_platform.csproj", "{09BE4F15-273B-4415-BA68-070BA595EEE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORozdobudko", "ORozdobudko\ORozdobudko.csproj", "{87847195-BC30-46DE-83CE-E35A3A663F29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ORozdobudko", "ORozdobudko\ORozdobudko.csproj", "{87847195-BC30-46DE-83CE-E35A3A663F29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_cross_platform", "Web_cross_platform\Web_cross_platform.csproj", "{877AC7CF-5ABC-45C2-A36C-2A10E7EDA324}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,10 @@ Global
 		{87847195-BC30-46DE-83CE-E35A3A663F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87847195-BC30-46DE-83CE-E35A3A663F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87847195-BC30-46DE-83CE-E35A3A663F29}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62B57659-82C6-4CDB-8245-47BC7355808A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62B57659-82C6-4CDB-8245-47BC7355808A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62B57659-82C6-4CDB-8245-47BC7355808A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62B57659-82C6-4CDB-8245-47BC7355808A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877AC7CF-5ABC-45C2-A36C-2A10E7EDA324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877AC7CF-5ABC-45C2-A36C-2A10E7EDA324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877AC7CF-5ABC-45C2-A36C-2A10E7EDA324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877AC7CF-5ABC-45C2-A36C-2A10E7EDA324}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
