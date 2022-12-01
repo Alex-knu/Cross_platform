@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/focal64"
+    config.vm.provider "virtualbox"
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.name = "ubuntu-vagrant-lab-4"
+        vb.memory = 4196
+        vb.cpus = 2
+    end
+    
+    config.vm.provision "shell", path: "../Scripts/installTools.sh"
+    
+    config.vm.provision "shell", inline: "dotnet nuget add source --name mynuget http://192.168.56.1:5000/v3/index.json" # 192.168.31.189
+    config.vm.provision "shell", inline: "dotnet add package ORozdobudko --version 1.0.0"
+    
+    config.vm.provision "shell", path: "../Scripts/loadApp.sh"
+
+    config.vm.provision "shell", inline: "dotnet build /var/cross_app/src/Cross_platform-master -c Release -o /var/cross_app/app"
+    config.vm.provision "shell", inline: "dotnet publish /var/cross_app/src/Cross_platform-master -c Release -o /var/cross_app/app"
+
+    config.vm.provision "shell", inline: "dotnet tool install arozdobudko --add-source http://192.168.56.1:5000/v3/index.json --tool-path /home/vagrant/.dotnet/tools" # --version 1.0.0 --global
+end

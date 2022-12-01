@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "gusztavvargadr/windows-10"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "windows-vagrant-lab-4"
+    vb.memory = 4196
+    vb.cpus = 2
+  end
+
+  config.vm.provision "shell", path: "../Scripts/installTools.bat"
+
+  #config.vm.provision "shell", inline: "dotnet nuget add source --name mynuget http://192.168.56.1:5000/v3/index.json" # 192.168.31.189
+  #config.vm.provision "shell", inline: "dotnet add package ORozdobudko --version 1.0.0"
+
+  config.vm.provision "shell", path: "../Scripts/loadApp.bat"
+
+  config.vm.provision "shell", inline: "dotnet tool install arozdobudko --version 1.0.0 --global"
+end
