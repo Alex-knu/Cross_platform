@@ -38,22 +38,49 @@ namespace Web_cross_platform.Controllers
 
         [HttpPost]
         //[Authorize]
-        public IActionResult PR2(CommonDataModel triangleModel)
+        public IActionResult PR2(CommonDataModel commonDataModel)
         {
             try
             {
-                triangleModel.Response = (Lab_2.Algoritm(Int32.Parse(triangleModel.Data))).ToString();
-                triangleModel.Calculated = true;
+                commonDataModel.Response = (Lab_2.Algoritm(Int32.Parse(commonDataModel.Data))).ToString();
+                commonDataModel.Calculated = true;
             }
             catch (ArgumentException aex)
             {
-                triangleModel.ErrorValue = aex.Message;
+                commonDataModel.ErrorValue = aex.Message;
             }
             catch (Exception ex)
             {
-                triangleModel.ErrorValue = ex.Message;
+                commonDataModel.ErrorValue = ex.Message;
             }
-            return View(triangleModel);
+            return View(commonDataModel);
+        }
+
+        public IActionResult PR3()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        //[Authorize]
+        public IActionResult PR3(CommonDataModel commonDataModel)
+        {
+            try
+            {
+                Lab_3 lab_3 = new Lab_3();
+                lab_3.Algoritm(commonDataModel.Data);
+                commonDataModel.Response = lab_3.Cycle == 0 ? "YES" : "NO";
+                commonDataModel.Calculated = true;
+            }
+            catch (ArgumentException aex)
+            {
+                commonDataModel.ErrorValue = aex.Message;
+            }
+            catch (Exception ex)
+            {
+                commonDataModel.ErrorValue = ex.Message;
+            }
+            return View(commonDataModel);
         }
     }
 }

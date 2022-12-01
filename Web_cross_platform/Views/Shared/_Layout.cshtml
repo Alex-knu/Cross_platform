@@ -22,17 +22,42 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Labs" asp-action="PR1">PR1</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Labs" asp-action="PR2">PR2</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Labs" asp-action="PR1">PR1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Labs" asp-action="PR2">PR2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Labs" asp-action="PR3">PR3</a>
+                            </li>
+                        }
                     </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><p class="navbar-text">Hello, @User.Identity.Name</p></li>
+                            <li><a class="nav-link" asp-controller="Account" asp-action="Profile" id="profile-button">Profile</a></li>
+                            <li>
+                                <form class="form-inline" asp-controller="Account" asp-action="SignOut" method="post">
+                                    <button type="submit" class="nav-link btn btn-link text-dark" id="logout-button">Sign Out</button>
+                                </form>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a asp-controller="Account" asp-action="SignIn" id="login-button">Sign In</a></li>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
